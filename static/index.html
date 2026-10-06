@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Smart Expense Tracker</h1>
+            <p>Manage your finances beautifully.</p>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <div class="glass-panel summary-panel">
+                    <h2>Overview</h2>
+                    <div class="total-spent">
+                        <span class="label">Total Spent</span>
+                        <h3 id="total-amount">$0.00</h3>
+                    </div>
+                    <div class="category-breakdown" id="category-summary">
+                        <!-- Category summaries will be injected here -->
+                    </div>
+                </div>
+
+                <div class="glass-panel form-panel">
+                    <h2 id="form-title">Add New Expense</h2>
+                    <form id="expense-form">
+                        <input type="hidden" id="expense-id">
+                        
+                        <div class="form-group">
+                            <label for="expense-date">Date</label>
+                            <input type="date" id="expense-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expense-desc">Description</label>
+                            <input type="text" id="expense-desc" placeholder="What did you buy?" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expense-amount">Amount</label>
+                                <div class="input-with-icon">
+                                    <span class="currency-icon">$</span>
+                                    <input type="number" id="expense-amount" step="0.01" min="0" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="expense-category">Category</label>
+                                <select id="expense-category" required>
+                                    <option value="Food">Food</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancel-edit" style="display: none;">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Add Expense</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="glass-panel list-panel">
+                <div class="list-header">
+                    <h2>Recent Expenses</h2>
+                </div>
+                <div class="table-container">
+                    <table id="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list">
+                            <!-- Expenses will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Message here</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

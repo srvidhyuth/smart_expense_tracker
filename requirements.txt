@@ -1,0 +1,6 @@
+pymongo
+Flask==3.0.0
+Flask-Cors==4.0.0
+dnspython
+python-dotenv
+certifi
